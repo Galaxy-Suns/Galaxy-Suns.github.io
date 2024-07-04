@@ -20,7 +20,7 @@ A Notes Lib For Self Study.
 | [Android](Android.md) |  |
 | [c、c++数组和指针](c、c++数组和指针.md) |  |
 | [Chromium内核插件](Chromium内核插件.md) |  |
-| [C#](C#.md) |  |
+| [C#](CSharp.md) |  |
 | [C++QT](C++QT.md) |  |
 | [d3_js](d3_js.md) |  |
 | [Django](Django.md) |  |
