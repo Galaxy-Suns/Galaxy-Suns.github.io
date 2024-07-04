@@ -21,7 +21,7 @@
 
 * 在`inspector`面板中显示, `Transform`, `Sprite Renderer`等
 
-  ![image-20240530215139505](C:\code\md\img\image-20240530215139505.png)
+  ![image-20240530215139505](img\image-20240530215139505.png)
 
 * `Transform`组件是必须的
 
