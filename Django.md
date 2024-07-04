@@ -227,14 +227,14 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 * 使用 
 
 ```django
-{% .. %}
+\{\% .. \%\}
 ```
 
   包裹
 
 * 有起始就要有结束 
 ```django
-{%..end%}
+\{\%..end\%\}
 ```
 
 #### 2.4.1 if 标签 选择结构 
@@ -254,7 +254,7 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 #### 2.4.2 for 标签 遍历目标 
 
 * 与py中的for对应，也可以遍历列表，元组，字符串，字典等一切可以遍历的对象
-* 反向遍历`{% for .... reversed %}`
+* 反向遍历`\{\% for .... reversed \%\}`
 * 每次循环中可以使用 `forloop.counter`获取当前循环次数，从 1 开始 `forloop.counter0` 从 0 开始
 * 不存在`continue`, `break`
 * `endfor`前使用`{% empty %}`在for遍历的目标为空时执行内部
