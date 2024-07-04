@@ -220,12 +220,22 @@ def info(req):
 </html>
 ```
 
-### 2.4 dejango常用内置模版标签
+### 2.4 django常用内置模版标签
 
 https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 
-* 使用 `{% .. %}`包裹
-* 有起始就要有结束 `{%..end....%}`
+* 使用 
+
+```django
+{% .. %}
+```
+
+  包裹
+
+* 有起始就要有结束 
+```django
+{%..end%}
+```
 
 #### 2.4.1 if 标签 选择结构 
 
