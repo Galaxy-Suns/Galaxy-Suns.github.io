@@ -7,7 +7,6 @@ A Notes Lib For Self Study.
 | [操作系统](操作系统.md) |  |
 | [程序内存模型](程序内存模型.md) |  |
 | [电路原理](电路原理.md) |  |
-| [黑马程序员C++提高编程](黑马程序员C++提高编程.md) |  |
 | [计算机网络](计算机网络.md) |  |
 | [可变数组、链表](可变数组、链表.md) |  |
 | [类和对象](类和对象.md) |  |
@@ -32,7 +31,6 @@ A Notes Lib For Self Study.
 | [JavaScript](JavaScript.md) |  |
 | [markdown](markdown.md) |  |
 | [matlab](matlab.md) |  |
-| [mis](mis.md) |  |
 | [nginx](nginx.md) |  |
 | [node_js](node_js.md) |  |
 | [PyEEG的使用](PyEEG的使用.md) |  |
