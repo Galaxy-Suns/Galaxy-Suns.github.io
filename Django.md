@@ -242,13 +242,13 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 * 与python中的if对应, 有`elif`, `else`
 
 ```django
-{% if age > 18 %}
+\{\% if age > 18 \%\}
     <p>你的年龄为：{{ age }}，允许进入</p>
-{% elif age == 18 %}
+\{\% elif age == 18 \%\}
     <p>您刚满18岁，还需要观察一下</p>
-{% else %}
+\{\% else \%\}
     <p>您的年龄为：{{ age }}，禁止进入</p>
-{% endif %}
+\{\% endif \%\}
 ```
 
 #### 2.4.2 for 标签 遍历目标 
@@ -257,7 +257,7 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 * 反向遍历`\{\% for .... reversed \%\}`
 * 每次循环中可以使用 `forloop.counter`获取当前循环次数，从 1 开始 `forloop.counter0` 从 0 开始
 * 不存在`continue`, `break`
-* `endfor`前使用`{% empty %}`在for遍历的目标为空时执行内部
+* `endfor`前使用`\{\% empty \%\}`在for遍历的目标为空时执行内部
 
 ```django
 <table>
@@ -268,12 +268,12 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
         </tr>
     </thead>
     <tbody>
-        {% for book in books %}
+        \{\% for book in books \%\}
             <tr>
                 <td>{{ book.name }}</td>
                 <td>{{ book.author }}</td>
             </tr>
-        {% endfor %}
+        \{\% endfor \%\}
     </tbody>
 </table>
 ```
@@ -284,9 +284,9 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 * 注意`with`定义变量时, 赋值`=`左右不能有空格
 
 ```django
-{% with book1name=books.1.name %}
+\{\% with book1name=books.1.name \%\}
     <p>作者的名字为：{{ book1name }}</p>
-{% endwith %}
+\{\% endwith \%\}
 ```
 
 #### 2.4.4 url标签 反转url
@@ -294,14 +294,14 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 * 常用在a标签的href，把路由名称映射到对应路由
 * 不需要end..
 * 同样受到url模块化命名空间的约束，要加`命名空间:`
-* `<a href="{% url 'info' %}">跳转到info</a>`
-* 传递`params`参数`<a href="{% url 'info' 1 %}">跳转到info</a>`/`<a href="{% url 'info' book_id=1 %}">跳转到info</a>`
-* 传递`query`参数要手动拼接 `<a href="{% url .. %}?id=1">..`
+* `<a href="\{\% url 'info' \%\}">跳转到info</a>`
+* 传递`params`参数`<a href="\{\% url 'info' 1 \%\}">跳转到info</a>`/`<a href="\{\% url 'info' book_id=1 \%\}">跳转到info</a>`
+* 传递`query`参数要手动拼接 `<a href="\{\% url .. \%\}?id=1">..`
 
 #### 2.4.5 include标签 组件化
 
 * 可额外在`templates`文件夹下新建`html`包含组件，内容仅含需要的结果
-* 在引入组件的`html`中，使用`{% include '组件.html' %}`会在templates文件夹下寻找
+* 在引入组件的`html`中，使用`\{\% include '组件.html' \%\}`会在templates文件夹下寻找
 * 组件的`html`中, 可以使用其父`html`的上下文，即也可以使用父中的变量, 引入其他变量可用`with`
 
 *组件中*
@@ -324,7 +324,7 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
     <title>首页</title>
 </head>
 <body>
-    {% include 'my_hotarcticle.html' %}
+    \{\% include 'my_hotarcticle.html' \%\}
 </body>
 </html>
 ```
@@ -333,9 +333,9 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 
 * 在`templates`目录新建父模版
 * 父模版的作用是供子模版继承使用，子模版可以包含父模版的所有内容，同时可以按父模版的规定有所差异
-* 在父模版中使用`{% block 自定义名字 %}可以传给子的内容{% endblock %}`规定子html可以差异的内容, 包括标题，引入js，html结构均可差异化
-* 子模版**在第一行**使用`{% extends 'my_base.html' %}`继承父模版
-* 子模版使用`{% block 名字 %}内容{% endblock %}`进行个性化,在其中可以使用`block.super`获取父传给子的内容
+* 在父模版中使用`\{\% block 自定义名字 \%\}可以传给子的内容\{\% endblock \%\}`规定子html可以差异的内容, 包括标题，引入js，html结构均可差异化
+* 子模版**在第一行**使用`\{\% extends 'my_base.html' \%\}`继承父模版
+* 子模版使用`\{\% block 名字 \%\}内容\{\% endblock \%\}`进行个性化,在其中可以使用`block.super`获取父传给子的内容
 
 *父模版*
 ```django
@@ -343,8 +343,8 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-    {% block head %}{% endblock %}
+    <title>\{\% block title \%\}\{\% endblock \%\}</title>
+    \{\% block head \%\}\{\% endblock \%\}
 </head>
 <body>
     <header>
@@ -353,7 +353,7 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
             <li><a href="/course">创业课堂</a></li>
         </ul>
     </header>
-    {% block body %}{% endblock %}
+    \{\% block body \%\}\{\% endblock \%\}
     <footer>
         备案...
     </footer>
@@ -363,24 +363,24 @@ https://docs.djangoproject.com/zh-hans/5.0/ref/templates/builtins/
 
 *子模版*
 ```django
-{% extends 'my_base.html' %}
+\{\% extends 'my_base.html' \%\}
 
-{% block body %}
-	{% include 'my_hotarcticle.html' %}
+\{\% block body \%\}
+	\{\% include 'my_hotarcticle.html' \%\}
     <div>你好</div>
-{% endblock %}
+\{\% endblock \%\}
 
-{% block title %}
+\{\% block title \%\}
 	主页
-{% endblock %}
+\{\% endblock \%\}
 
-{% block head %}
+\{\% block head \%\}
     <style>
         body{
             background-color: pink;
         }
     </style>
-{% endblock %}
+\{\% endblock \%\}
 ```
 
 ### 2.5 常用过滤器
