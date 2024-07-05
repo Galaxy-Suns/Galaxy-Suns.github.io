@@ -2,7 +2,7 @@
 
 A Notes Lib For Self Study.
 
-| lectures | description |
+| note name | description |
 | ---- | ---- |
 | [操作系统](操作系统.md) |  |
 | [程序内存模型](程序内存模型.md) |  |
