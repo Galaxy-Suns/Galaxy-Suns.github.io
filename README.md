@@ -15,7 +15,7 @@ A Notes Lib For Self Study.
 | [数据结构](数据结构.md) |  |
 | [数据库和C++的连接](数据库和C++的连接.md) |  |
 | [网站](网站.md) |  |
-| [一些工具](一些工具.md) |  |
+| [一些工具](一些工具.md) | 计算机教育中缺失的一课 [完整笔记及更多信息](https://missing-semester-cn.github.io/) |
 | [ajax](ajax.md) |  |
 | [Android](Android.md) |  |
 | [c、c++数组和指针](c、c++数组和指针.md) |  |
