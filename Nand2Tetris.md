@@ -1,6 +1,9 @@
 # 从与非门到俄罗斯方块
 
 [online-IDE](https://nand2tetris.github.io/web-ide/chip)
+
+[课程地址](https://www.coursera.org/learn/build-a-computer/home/week/1)
+
 ## 0 绪论
 
 ### 简介
@@ -174,4 +177,55 @@ HDL是一种声明式的语言，不参与实际程序的运行，是门的静�
 
 ### 硬件模拟
 
+* 测试模拟器, 根据更改不同的输入来获取输出，同时可以看到中间输出
+* 编写测试语言文件（可以整理一组预先确定的可复制文件）
+* 与脚本文件进行比较
 
+#### 测试脚本
+
+```tst
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/Xor.tst
+
+output-list a b out;
+
+set a 0,
+set b 0,
+eval,
+output;
+
+set a 0,
+set b 1,
+eval,
+output;
+
+set a 1,
+set b 0,
+eval,
+output;
+
+set a 1,
+set b 1,
+eval,
+output;
+```
+
+### 多位总线
+
+*在操作硬件的时候，有时候会操作一堆具有相同地位的输入，将一堆作为一个实体进行整体操作很方便*
+
+这种整体称为**总线bus**
+
+#### HDL 关于总线
+
+```HDL
+CHIP ADD16{
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+        ...
+}
+```
