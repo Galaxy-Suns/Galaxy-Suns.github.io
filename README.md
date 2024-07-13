@@ -40,4 +40,4 @@ A Notes Lib For Self Study.
 | [vue3](vue3.md) |  |
 | [websocket](websocket.md) |  |
 | [win批处理](win批处理.md) |  |
-| [从NAND到创造计算机再到俄罗斯方块](Nand2Tetris.md) |  |
+| [从NAND到俄罗斯方块](Nand2Tetris.md) |  |
