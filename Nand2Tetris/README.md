@@ -6,20 +6,24 @@
 
 [搬运中字地址](https://www.bilibili.com/video/BV1KJ411s7QJ)
 
-## 目录
+## Part1 目录
 
 | 地址 | 名称 | 描述 |
 | - | - | - |
-| [Unit1](./Unit1.md) | 基本逻辑门 | |
-| [Unit2](./Unit2.md) | 组合逻辑及ALU | |
-| [Unit3](./Unit3.md) | 存储系统 | |
-| [Unit4](./Unit4.md) | 机器语言 | |
-| [Unit5](./Unit5.md) | 计算机体系结构 | |
-| [Unit6](./Unit6.md) | 汇编语言 | |
+| [Module1](part1/Unit1.md) | 基本逻辑门 | |
+| [Module2](part1/Unit2.md) | 组合逻辑及ALU | |
+| [Module3](part1/Unit3.md) | 存储系统 | |
+| [Module4](part1/Unit4.md) | 机器语言 | |
+| [Module5](part1/Unit5.md) | 计算机体系结构 | |
+| [Module6](part1/Unit6.md) | 汇编语言 | |
 
- 
+## Part2 目录
 
-## 0 绪论
+| 地址 | 名称 | 描述 |
+| - | - | - |
+| [Module1](part2/Unit1.md) | 虚拟机 | |
+
+## Part1 绪论
 
 ### 简介
 
@@ -70,4 +74,27 @@
 * 构建一种高级语言，并构建编译器
 * 构建标准库
 
+## Part2 绪论
 
+本课程我们从Hack计算机出发，构建虚拟机、编译器、操作系统和所有必要系统
+
+最终我们可以在其运行面向对象的高级语言
+
+![](img/aa5b258f.png)
+
+### 关于我们的编译器
+
+![](img/e751813e.png)
+
+类似Java、python、c#，我们的编译器不会直接翻译成机器语言，而是首先翻译成一种中间语言——VM语言，为在抽象的虚拟机上运行而设计
+
+最终这种VM代码翻译为汇编代码
+
+完成项目非常重要！
+
+只需要基础的编程技能。
+
+### Project 0 概述
+
+* 下载本课程的软件套件 www.nand2tetris.org (同样可以使用在线IDE）
+* 提交一个文件
