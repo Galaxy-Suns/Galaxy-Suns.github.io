@@ -10,18 +10,18 @@
 
 | 地址 | 名称 | 描述 |
 | - | - | - |
-| [Module1](part1/Unit1.md) | 基本逻辑门 | |
-| [Module2](part1/Unit2.md) | 组合逻辑及ALU | |
-| [Module3](part1/Unit3.md) | 存储系统 | |
-| [Module4](part1/Unit4.md) | 机器语言 | |
-| [Module5](part1/Unit5.md) | 计算机体系结构 | |
-| [Module6](part1/Unit6.md) | 汇编语言 | |
+| [Module1](Part1/Unit1.md) | 基本逻辑门 | |
+| [Module2](Part1/Unit2.md) | 组合逻辑及ALU | |
+| [Module3](Part1/Unit3.md) | 存储系统 | |
+| [Module4](Part1/Unit4.md) | 机器语言 | |
+| [Module5](Part1/Unit5.md) | 计算机体系结构 | |
+| [Module6](Part1/Unit6.md) | 汇编语言 | |
 
 ## Part2 目录
 
 | 地址 | 名称 | 描述 |
 | - | - | - |
-| [Module1](part2/Unit1.md) | 虚拟机 | |
+| [Module1](Part2/Unit1.md) | 虚拟机 | |
 
 ## Part1 绪论
 
