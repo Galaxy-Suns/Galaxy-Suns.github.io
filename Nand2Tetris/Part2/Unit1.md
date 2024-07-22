@@ -134,4 +134,162 @@ local段的pop实现：
 
 #### static段的实现
 
+与local等局部作用域的变量不同，static变量作用在当前文件
 
+我们在机器语言中将static段所操作的值作为变量处理，因此静态段最终会位于16-255（变量存储区域），方便程序的其余部分如函数等访问
+
+```
+// Foo.mv
+pop static 2
+
+=>
+// .asm
+@Foo.2
+M=D
+```
+
+#### temp段的实现
+
+当编译器将Javk转为vm代码会需要一些临时变量
+
+实现为一个固定的长度为8的内存段，位于RAM[5-12]
+
+```
+// push
+push temp i
+
+=> 
+
+addr=5+i
+*sp=*addr
+sp++
+
+// pop
+pop temp i
+
+=>
+
+addr=5+i
+sp--
+*addr=*sp
+```
+
+#### pointer段的实现
+
+存在两个指针0、1来操作THIS和THAT（在编译器中代表当前对象和当前对象在处理的数据）的基址
+
+只存在如下操作
+
+```
+push pointer 0/1
+pop pointer 0/1
+```
+
+```
+// push
+*sp=THIS/THAT,sp++
+//pop
+sp--,THIS/THAT=*sp
+```
+
+## VM模拟器
+
+一个高级语言编写的程序，可以模拟执行vm代码
+
+与翻译器的区别：
+
+* 翻译器只是把vm代码作为输入，汇编代码作为输出
+* 而VM模拟器模拟"执行"了vm代码(可以视为翻译器+执行，不过底层可能并不是先翻译为某种机器语言，而是直接模拟）
+
+**用途**
+
+* 运行编译后的JACK（VM码）代码
+* 运行测试脚本
+* 来学习理解虚拟机的抽象（单步运行VM程序，并观察指令的影响，如栈，各内存段）
+* 观察虚拟机抽象在真实平台上的实际托管方式（可以看到Hack平台的RAM）
+
+## The hack计算机上的虚拟机实现
+
+vm翻译器是一个由高级语言编写，输入为vm码，输出为目标平台的汇编语言（每当翻译一条vm指令，同时以注释的形式生成该vm指令
+
+我们要处理的vm指令如下
+
+![](img/9e02cc00.png)
+
+本项目我们只关注算术逻辑和内存指令
+
+而目标语言的介绍如下
+
+![](img/6f415f26.png)
+
+如何在RAM上选取合适的位置来存放内存段？
+
+我们提供了标准映射
+
+![](img/e2b1e9bf.png)
+
+我们在翻译为汇编语言时，采用如下一些标签
+
+![](img/a1336f3d.png)
+
+## 使用高级语言构建翻译器的建议
+
+建议开发三个独立的模块
+
+* Parser
+* CodeWriter
+* Main 
+
+### Main 主模块
+
+以`.vm`文件作为输入，`.asm`文件作为输出
+
+1. 构建了`Parser`解析器
+2. 构建了`CodeWriter`代码编写器
+3. 遍历输入的文件，分别处理文件中的每一行
+    * 将每一行输入到`Parser`进行解析为各个组，也就是虚拟机的各个元素
+    * 将组传递给`CodeWriter`，生成汇编代码，写入`.asm`
+
+### Parser 解析器 
+
+读取`.vm`文件，并逐行将vm码拆分成单个元素，同时删除注释和空行（忽略）
+
+* 构造函数 打开输入文件进行处理 `Parser(string fileName)`
+* 获取是否还有更多命令（是否已到达末尾）`bool hasMoreCommands`
+* 前进到下一行，并进行分解操作 `void advance()`
+* 查看当前的命令类别 `string commandType`
+    * 根据算术逻辑、push、pop等 分为如下类别
+
+![](img/7013765e.png)
+
+* 当前命令的参数 `string arg1` `int arg2`
+    * 参数的表述如下
+
+![](img/fd0be69c.png)
+
+### CodeWriter 汇编生成器
+
+输入解析后的vm码，输出汇编代码
+
+* 构造函数 打开输出文件并准备写入 `CodeWriter(string fileName)`
+* 编写逻辑算术命令的汇编代码 `void writeArithmetic(string cmd)`
+* 编写push，pop命令的汇编代码 `void writePushPop(string cmdType, string seg, int index)`
+* 关闭输出文件`void close()`
+
+## Project 1 构建vm翻译器 初步
+
+由高级语言编写可以将前两类（算术/逻辑、内存）vm码翻译为汇编语言的程序
+
+在每一句的翻译前，应输出vm码的注释到`.asm`
+
+我们提供5个测试文件
+
+* `SimpleAdd.vm`
+* `StackTest.vm`
+* `BasicTest.vm`
+* `PointerTest.vm`
+* `StaticTest.vm`
+
+建议先在vm模拟器中运行，尝试理解程序的目的和执行过程
+
+最终在把翻译得来的`.asm`加载入CPU模拟器时，会不能执行，因为我们的vm代码没有初始化，因此需要把测试脚本`.tst`先加载入cpu模拟器
