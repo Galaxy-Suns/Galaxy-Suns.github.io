@@ -1,0 +1,2 @@
+import module_a as m
+#print(m.name) 报错

@@ -1,0 +1,16 @@
+import my_info as mi
+print(mi.name)
+mi.info()  #别名.变量函数类名
+
+from my_info import name #从模块导入name变量
+from my_info import info
+print(name)  #这种from导入变量函数类直接用名字就可以，不需要模块名.了
+info()
+
+#使用通配符*导入模块中所有
+from my_info import *
+print(name)
+info()
+
+#同时导入多个模块
+import math,time,random

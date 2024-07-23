@@ -1,0 +1,10 @@
+```py
+'''try except else'''
+
+try:
+    a=int(input('请输入第一个整数'))
+    b=int(input('请输入第二个整数'))
+except BaseException as e:
+    print('出错了',e)
+else:
+    print('结果为',a/b)```
