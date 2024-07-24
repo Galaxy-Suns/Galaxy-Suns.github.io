@@ -1,11 +1,12 @@
 | 名称 | 描述 |
 | - | - |
-| [demo1](demo1.py) | |
-| [demo2](demo2.py) | |
-| [demo4](demo4.py) | |
-| [demo7](demo7.py) | |
-| [demobig](demobig.py) | |
-| [demoifelif](demoifelif.py) | |
-| [demoifelse](demoifelse.py) | |
-| [demoif](demoif.py) | |
-| [demopass](demopass.py) | |
+| [demo1.md](demo1.md) | |
+| [demo2.md](demo2.md) | |
+| [demo4.md](demo4.md) | |
+| [demo7.md](demo7.md) | |
+| [demobig.md](demobig.md) | |
+| [demoifelif.md](demoifelif.md) | |
+| [demoifelse.md](demoifelse.md) | |
+| [demoif.md](demoif.md) | |
+| [demopass.md](demopass.md) | |
+| [README.md](README.md) | |
