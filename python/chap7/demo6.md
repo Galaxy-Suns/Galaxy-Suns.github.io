@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/12/8 9:37
 
@@ -12,4 +14,6 @@ lst=[10,20,30,40]
 lst.insert(1,100)
 print(lst)
 #d={lst:100}#TypeError: unhashable type: 'list'
+
+
 ```

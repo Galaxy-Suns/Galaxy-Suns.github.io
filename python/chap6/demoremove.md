@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/29 16:55
 lst=[10,20,30,40,50,60,30]
@@ -27,4 +29,6 @@ print(lst)
 
 '''del语句将列表对象删除'''
 del lst
-#print(lst)#NameError: name 'lst' is not defined```
+#print(lst)#NameError: name 'lst' is not defined
+
+```

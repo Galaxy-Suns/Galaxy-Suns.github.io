@@ -1,4 +1,6 @@
 ```py
+
+
 '''10 递归函数'''
 
 def fac(n):
@@ -8,4 +10,6 @@ def fac(n):
         res=n*fac(n-1)
         return res
 
-print(fac(6))```
+print(fac(6))
+
+```

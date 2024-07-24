@@ -1,4 +1,6 @@
 ```py
+
+
 class Student:
     def __init__(self,name,age):
         self.__name=name
@@ -42,4 +44,6 @@ if __name__ == '__main__':
     stu.age=-23 #由于使用@property修饰，方法变为属性不用加（）
     print(stu.age)
     stu.show()
+
+
 ```

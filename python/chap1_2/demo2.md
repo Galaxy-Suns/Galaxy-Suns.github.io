@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/6/2619:08
 #转义字符
@@ -14,4 +16,6 @@ print('老师说：\'大家好\'')
 print(r'hello\nworld')
 #注意事项：最后一个字符不能是反斜杠
 #print(r'hello\nworld\')
-print(r'hello\nworld\\')```
+print(r'hello\nworld\\')
+
+```

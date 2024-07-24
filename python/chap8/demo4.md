@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/12/8 16:47
 
@@ -11,4 +13,6 @@ print(t[2])
 #print(t[3])#IndexError: tuple index out of range
 '''遍历元组'''
 for item in t:
-    print(item)```
+    print(item)
+
+```

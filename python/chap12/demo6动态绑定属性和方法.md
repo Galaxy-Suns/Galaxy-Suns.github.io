@@ -1,4 +1,6 @@
 ```py
+
+
 '''动态绑定属性和方法'''
 
 class Student:
@@ -25,4 +27,6 @@ def show():
     print('定义在类之外的，称函数')
 stu1.show=show #将函数绑定到对象中，就成为了方法
 stu1.show()
-#stu2.show()```
+#stu2.show()
+
+```

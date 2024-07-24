@@ -1,4 +1,6 @@
 ```py
+
+
 '''11 斐波那契数列'''
 
 def fib(n):
@@ -16,4 +18,6 @@ print(fib(6))
 print('------------------')
 #输出前六位
 for i in range(1,7):
-    print(fib(i))```
+    print(fib(i))
+
+```

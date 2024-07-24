@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/13 22:32
 q=5.6
@@ -23,6 +25,8 @@ print('圆珠笔\t\t\t\t',p,chr(20803),file=fp)
 from decimal import Decimal
 print('合计\t\t\t\t',Decimal('5.6')+Decimal('4')+Decimal('3.1')+Decimal('6')+Decimal('14.99')+Decimal('1028')+Decimal('105')+Decimal('3'),chr(20803),file=fp)
 fp.close
+
+
 
 
 ```

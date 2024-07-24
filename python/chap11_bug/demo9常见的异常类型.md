@@ -1,4 +1,6 @@
 ```py
+
+
 '''常见的异常类型'''
 
 #（1）数学运算异常
@@ -19,4 +21,6 @@ dic={'name':'张三','age':20}
 # int a=20  SyntaxError
 
 #（6）传入无效参数
-# a=int('hello') ValueError```
+# a=int('hello') ValueError
+
+```

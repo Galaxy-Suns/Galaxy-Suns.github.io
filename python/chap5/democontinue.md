@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/22 19:55
 
@@ -17,4 +19,6 @@ print('--------------使用continue-----------------')
 for item in range(1,51):
     if item%5!=0:
         continue
-    print(item)```
+    print(item)
+
+```

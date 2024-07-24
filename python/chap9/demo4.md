@@ -1,4 +1,6 @@
 ```py
+
+
 #字符串中大小写转换的方法
 s='hello,python'
 a=s.upper()  #转成大写后，会产生一个新的字符串对象 全部大写
@@ -15,4 +17,6 @@ print(s2.swapcase())  #大写转小写，小写转大写
 
 print(s2.title())  #每个单词首字母大写
 
-print(s2.capitalize())  #开头首字母大写```
+print(s2.capitalize())  #开头首字母大写
+
+```

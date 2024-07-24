@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/14 13:47
 name='张三'
@@ -37,6 +39,8 @@ print(float(s2),type(float(s2)))
 print(float(ff),type(float(ff)))
 #print(float(s3),type(float(s3)))    #字符串中的数据如果是非数字串，则不允许转换
 print(float(i),type(float(i)))
+
+
 
 
 ```

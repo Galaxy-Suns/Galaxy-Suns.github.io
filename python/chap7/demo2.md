@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/12/7 21:42
 '''获取字典中的元素'''
@@ -11,4 +13,6 @@ print(scores['张三'])
 print(scores.get('张三'))
 print(scores.get('陈六'))#None
 print(scores.get('麻七',99))#99是在查找'麻七'所对的value不存在时，提供的一个默认值
-print(scores)```
+print(scores)
+
+```

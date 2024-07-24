@@ -1,6 +1,8 @@
 ```py
 
 
+
+
 class Student:  # Student为类的名称（类名）由一个或多个单词组成,每个单词的首字母大写其余小写
     native_pace='吉林'  # 直接写在类的变量，称为类属性
     def __init__(self,name,age):  #初始化方法
@@ -34,4 +36,6 @@ print('-------------------------')
 print(id(Student)) # Student是类的名称
 print(type(Student))
 print(Student)
+
+
 ```

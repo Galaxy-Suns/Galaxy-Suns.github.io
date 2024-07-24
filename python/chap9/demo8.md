@@ -1,4 +1,6 @@
 ```py
+
+
 '''字符串的替换与合并'''
 
 
@@ -15,4 +17,6 @@ print(''.join(lst))
 t=('hello','java','Python')
 print(''.join(t))
 
-print('*'.join('Python'))```
+print('*'.join('Python'))
+
+```

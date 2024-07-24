@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/17 19:36
 #比较运算符,比较运算符的结果为布尔类型
@@ -29,4 +31,6 @@ print(id(lst1))
 print(id(lst2))
 print(a is not b)  #False  #a和b的id是相等的
 print(lst1 is not lst2)  #True
+
+
 ```

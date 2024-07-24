@@ -1,6 +1,8 @@
 ```py
 
 
+
+
 class Student:  # Student为类的名称（类名）由一个或多个单词组成,每个单词的首字母大写其余小写
     native_pace='吉林'  # 直接写在类的变量，称为类属性
     def __init__(self,name,age):  #初始化方法
@@ -34,5 +36,7 @@ print(stu1.age)
 
 print('-------------------------')
 Student.eat(stu1) #  学生在吃饭... 实例方法 35行与30行代码功能相同，都是调用Student中的eat方法  类名.方法名(类的对象)-->实际上是方法定义处的self
+
+
 
 ```

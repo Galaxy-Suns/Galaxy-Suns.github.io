@@ -1,4 +1,6 @@
 ```py
+
+
 class FatherA:
     def __init__(self,name):
         self.name=name
@@ -22,4 +24,6 @@ if __name__ == '__main__':
     son=Son("陈梅梅",20,"女")
     son.showA()
     son.showB()
+
+
 ```

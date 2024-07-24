@@ -1,4 +1,6 @@
 ```py
+
+
 a=10
 b=20
 print(dir(a))
@@ -16,4 +18,6 @@ print(a.__mul__(b)) #a*b
 print(a.__truediv__(b)) #非整除
 print(a.__mod__(b))
 print(a.__floordiv__(b))
-print(a.__pow__(2))```
+print(a.__pow__(2))
+
+```

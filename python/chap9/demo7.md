@@ -1,4 +1,6 @@
 ```py
+
+
 '''字符串判断相关方法'''
 s='hello,python'
 print('1.',s.isidentifier()) #False 判断是否合法字符串：字母(汉字)数字下划线。
@@ -22,4 +24,6 @@ print('14.','ⅡⅡⅡ'.isnumeric()) #True
 
 print('15.','abc1'.isalnum()) #True 判断字符串是否全由字母（汉字）和数字组成
 print('16.','张三123'.isalnum()) #True
-print('17.','abc!'.isalnum()) #False```
+print('17.','abc!'.isalnum()) #False
+
+```

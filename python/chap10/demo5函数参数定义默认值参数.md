@@ -1,4 +1,6 @@
 ```py
+
+
 '''函数参数定义_默认值参数'''
 def fun(a,b=10): # b称为默认值参数
     print(a,b)
@@ -18,4 +20,6 @@ r'''
 
 print('hello',end='\t')
 print('world')
+
+
 ```

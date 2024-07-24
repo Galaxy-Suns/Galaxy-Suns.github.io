@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/12/7 16:10
 lst=[20,40,10,98,54]
@@ -21,4 +23,6 @@ print(lst)
 print(new_list)
 #指定关键字参数，实现列表元素的降序排序
 desc_list=sorted(lst,reverse=True)
-print(desc_list)```
+print(desc_list)
+
+```

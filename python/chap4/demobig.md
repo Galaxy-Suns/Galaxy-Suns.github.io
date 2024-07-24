@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/20 20:36
 '''从键盘录入两个整数，比较它们的大小'''
@@ -11,4 +13,6 @@ else:
     print(num_a,'小于',num_b)'''
 print('使用条件表达式进行比较')
 print((str(num_a)+'大于等于'+str(num_b))    if num_a>=num_b  else  (str(num_a)+'小于'+str(num_b)))
+
+
 ```

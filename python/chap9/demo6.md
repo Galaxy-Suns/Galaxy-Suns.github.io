@@ -1,4 +1,6 @@
 ```py
+
+
 '''字符串的劈分操作'''
 
 '''split()方法从左侧开始劈分'''
@@ -21,4 +23,6 @@ print(s.rsplit())
 
 print(s1.rsplit('|'))
 
-print(s1.rsplit(sep='|',maxsplit=1))```
+print(s1.rsplit(sep='|',maxsplit=1))
+
+```

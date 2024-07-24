@@ -1,4 +1,6 @@
 ```py
+
+
 '''变量的作用域'''
 
 def fun(a,b):
@@ -25,4 +27,6 @@ def fun3():
     age=20
     print(age)
 fun3()
-print(age)```
+print(age)
+
+```

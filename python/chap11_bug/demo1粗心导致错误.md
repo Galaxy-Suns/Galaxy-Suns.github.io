@@ -1,4 +1,6 @@
 ```py
+
+
 '''粗心导致错误'''
 
 age=input('请输入你的年龄')
@@ -9,4 +11,6 @@ if int(age)>=18: # if age>=18:
 i=0
 while i<10:
     print(i) # print（i）
-    i+=1```
+    i+=1
+
+```

@@ -1,4 +1,6 @@
 ```py
+
+
 #集合的相关操作
 s={10,20,30,405,60}
 '''集合元素的判断操作'''
@@ -26,4 +28,6 @@ s.pop()
 #s.pop(405) #TypeError: pop() takes no arguments (1 given) 不可指定参数
 print(s)
 s.clear()
-print(s)```
+print(s)
+
+```

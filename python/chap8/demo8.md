@@ -1,4 +1,6 @@
 ```py
+
+
 #集合的数学操作
 #(1)交集
 s1={10,20,30,40}
@@ -26,4 +28,6 @@ print(s1.symmetric_difference(s2))
 print(s1 ^ s2) #symmetric_difference()与 ^ 等价，对称差集操作
 
 print(s1)
-print(s2)```
+print(s2)
+
+```

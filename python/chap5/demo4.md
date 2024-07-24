@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/22 0:48
 for item in 'Python': #第一次取出来的是P，将P赋值给item,将item的值输出
@@ -22,4 +24,6 @@ sum=0 #用于存储偶数和
 for item in range(1,101):
     if item%2==0:
         sum+=item
-print('1-100之间的偶数和为',sum)```
+print('1-100之间的偶数和为',sum)
+
+```

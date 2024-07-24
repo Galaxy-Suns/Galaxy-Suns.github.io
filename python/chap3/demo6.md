@@ -1,4 +1,6 @@
 ```py
+
+
 # ---------------trying-----------------
 # 时间2021/8/17 21:04
 #布尔运算符
@@ -25,4 +27,6 @@ print('-------------in 与not in---------------')
 s='helloworld'
 print('w' in s)  #True
 print('k' in s)  #False
-print('w' not in s)  #False```
+print('w' not in s)  #False
+
+```

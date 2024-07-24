@@ -1,4 +1,6 @@
 ```py
+
+
 class Student:
     # 首尾双下划线，表示特殊方法，一般系统定义
     def __init__(self,name,age,gender):
@@ -37,4 +39,6 @@ if __name__ == '__main__':
 
     #可以使用以下的形式访问类对象的私有成员
     print(stu._Student__age)
-    stu._Student__fun2() #不建议```
+    stu._Student__fun2() #不建议
+
+```

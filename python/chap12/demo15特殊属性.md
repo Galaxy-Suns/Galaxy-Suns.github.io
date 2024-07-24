@@ -1,4 +1,6 @@
 ```py
+
+
 class A:
     pass
 class B:
@@ -25,4 +27,6 @@ if __name__ == '__main__':
     print(C.__mro__) #[<class '__main__.C'>, <class '__main__.B'>, <class '__main__.A'>, <class 'object'>] C类继承了A类和B类，A,B又继承了object
     #用于获取类的子类
     print(A.__subclasses__()) #A的子类C
-    print(C.__subclasses__()) #C没有子类，空列表```
+    print(C.__subclasses__()) #C没有子类，空列表
+
+```

@@ -1,4 +1,6 @@
 ```py
+
+
 name='cmm'
 
 
@@ -7,4 +9,6 @@ def info():
 
 '''导入模块的方式'''
 #import 模块名 as 别名
-#from 模块名 import 变量/函数/类等```
+#from 模块名 import 变量/函数/类等
+
+```

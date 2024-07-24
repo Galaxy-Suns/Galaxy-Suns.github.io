@@ -1,4 +1,6 @@
 ```py
+
+
 '''字符串的比较操作'''
 
 print('apple'>'app') #True
@@ -24,5 +26,7 @@ print(a is c) #True
 print(id(a)) #39013104
 print(id(b)) #39013104
 print(id(c)) #39013104
+
+
 
 ```

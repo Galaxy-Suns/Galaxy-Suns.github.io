@@ -1,4 +1,6 @@
 ```py
+
+
 '''函数的参数总结'''
 
 def fun(a,b=10): # b在函数的定义处，所以b是形参，而且进行了赋值，所以b称为默认值形参
@@ -33,4 +35,6 @@ def fun5(a,b,*,c,d,**args):
 def fun6(*args1,**args2):
     pass
 def fun7(a,b=10,*args1,**args2):
-    pass```
+    pass
+
+```
