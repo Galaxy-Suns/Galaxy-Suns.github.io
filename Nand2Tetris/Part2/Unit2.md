@@ -130,4 +130,87 @@
 
 ## 函数命令和架构的代码实现
 
+在vm转换器中利用标签和跳转实现
+
+![](img/433c46db.png)
+
+当call发生时
+
+![](img/f7a31b7f.png)
+
+当执行`function Bar.mult 2`时
+
+![](img/db5b664b.png)
+
+当执行`return`时
+
+![](img/9384133d.png)
+
+## 在Hack平台实现VM转换器
+
+多个vm文件会被汇编进同一个.asm文件
+
+从vm到汇编时，我们失去了函数这一概念，我们在汇编中找到合适的方式来实现vm的语义
+
+### Booting
+
+在计算机启动时，如何执行程序
+
+任意一个vm程序都存在一个`main.vm`
+
+当每次vm程序开始运行时，会执行操作系统函数`Sys.init`，`Sys.init`会调用`Main.main`，开始运行
+
+我们需要在ROM中存放以下指令作为计算机的启动指令
+
+![](img/2dbd2c56.png)
+
+用到的符号
+
+![](img/8edc6c30.png)
+
+## 用高级语言实现完整的vm翻译器
+
+* 扩展处理多个vm文件的能力：将多个vm文件翻译为一个`.asm`文件
+* 使用和前一个项目相同的三个模块`Parser`, `CodeWriter`, `Main`
+
+### Main 模块
+
+输入 一个单独的vm文件名 或一个目录名，其中包含一个或多个`.vm`文件
+
+输出为 fileName.asm或目录名.asm
+
+1. 构建`CodeWriter`
+2. 如果输入是单独的文件，构建`Parser`对其进行处理，通过输入文件中的每个命令遍历，并把结果交给`CodeWriter`，输出汇编代码
+3. 如果输入是目录，则会对目录中的每个文件进行如上的处理
+
+### Parser 模块
+
+* 处理一个单独的vm文件
+* 读取一个vm指令分解为其各个词汇
+* 和上一个项目中基本相同，只是新增了一些命令
+
+![](img/9916e89e.png)
+
+### CodeWriter 模块
+
+之前的CodeWriter
+
+![](img/85a77ddf.png)
+
+需要新增如下功能
+
+* `setFileName(string fileName)` 通知CodeWriter新VM文件的处理刚刚开始
+* `writeInit()` 写入Booting代码
+* `writeLable(string label)` 生成`label`的汇编代码
+* `writeGoto(string label)` 生成`goto`的汇编代码
+* `writeIF(string label)` 生成`if-goto`的汇编代码
+* ...
+
+![](img/659e2c9d.png)
+
+## Project 8 构建完整VM翻译器
+
+本项目中，构建处理多文件，包含分支和函数命令的vm翻译器
+
+我们有一些测试文件供检查，和上一个项目相同的要求
 
