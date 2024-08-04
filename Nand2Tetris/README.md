@@ -24,6 +24,7 @@
 | [Module1](Part2/Unit1.md) | 虚拟机 第一部分 | vm 内存、算术逻辑命令 |
 | [Module2](Part2/Unit2.md) | 虚拟机 第二部分 | vm 函数、分支命令 |
 | [Module3](Part2/Unit3.md) | Jack语言 | |
+| [Module4](Part2/Unit4.md) | Jack编译器 第一部分 | Jack 分析器的编写 |
 
 ## Part1 绪论
 
