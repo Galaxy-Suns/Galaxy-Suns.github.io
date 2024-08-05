@@ -145,7 +145,74 @@ Jack中的每个文件即类是分开编译的
 分为三个模块
 
 * `JackTokenizer`
+    * 处理词汇元素
 * `CompilationEngine`
+    * 处理除词汇元素外的其余元素
 * `JackAnalyzer(Main)`
     * 输入可能是单个`.jack`文件，或者是某个目录的名字
     * 输出为单文件或目录中每个文件都有一个的`前缀.xml`文件（仍在此目录）
+    
+### JackTokenizer
+
+*封装了输入，对于其它部分来说`Tokenizer`即为输入，而舍弃了输入源文件*
+
+* 忽略空格
+* 前进一步推进到下一个`token`
+* 给出当前`token`的信息
+
+![](img/a05ea529.png)
+
+**API**
+
+* 构造函数`JackTokenizer(file)`，输入源文件，并开始获取`token`
+* `hasMoreTokens` 标识是否还有更多`token`等待前进
+* `advance()` 获取下一个`token`
+* `tokenType` 标识当前`token`的类别
+    * `KEYWORD`
+    * `SYMBOL`
+    * `IDENTIFIER`
+    * `INT_CONST`
+    * `STRING_CONST`
+* `keyWord` 如当前`token`是KEYWORD,标识`token`的实际值
+* `symbol` `identifier` `intVal` `stringVal` 同理于`keyWord`
+
+### CompilationEngine
+
+*从`JackTokenizer`获取输入*
+
+**API**
+
+* 构造函数`CompilationEngine(inFile, outFile)`
+* `compliteClass()` 处理一个完整的类，输出对应XML
+* `compileClassVarDec()` 处理一个`static`或`field`变量的声明
+* ...
+
+![](img/04ca0faa.png)
+
+![](img/2e275b4e.png)
+
+![](img/a108efde.png)
+
+### Main
+
+接收单个的Jack文件名或包含0个到多个Jack文件的目录名
+
+对于每一个Jack文件
+
+1. 创建`JackTokenizer`
+2. 创建输出文件`fileName.xml`
+3. 创建并使用`CompilationEngine`，从`JackTokenizer`中获取输入，并输出到`xml`
+
+## Project 10 构建Jack分析器
+
+### 步骤
+
+1. 建造`Jack Tokenizer`
+2. 建造基本的`compilation engine` 即不包括表达式的处理
+3. 建造完整`compilation engine`
+
+* 整个文件由`<tokens></tokens>`包裹
+* 对于`stringConstant`的字符串字面量，不应输出引号
+* 对于`>` `<` `.` `&` 被转义为`&gt` `&lt` `&quot` `&amp` 原因是浏览器对这些符号会特殊解析
+
+![](img/3e4c9a3c.png)
