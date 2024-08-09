@@ -318,9 +318,112 @@ jack中由`var`声明的的`local`变量会映射到vm中的`local`内存段
 
 ### SymbolTable
 
+* 构造函数 `SymbolTable()` 创建一个新的符号表
+* `void startSubroutine()`  重置符号表
+* `void define(string name, string type, strin kind)` 向符号表中添加数据 `name`变量名 `type` 数据类型 `kind` `STATIC FIELD ARG VAR`中的一种 并且还隐式给数据添加了相对于其`kind`的索引
+* `int varCount(string kind)` 返回符号表中某一`kind`变量的数量
+* `string kindOf(string name)` 根据变量名查找表中对应变量的`kind`，没有找到返回`None`
+* `string typeof(string name)` 根据变量名 找到对应变量的`Type`
+* `int indexOf(string name)` 根据变量名 查询变量的索引，没有找到可以返回`-1`
 
+可以使用哈希表实现
 
+### VMWriter
 
+* 构造函数`VMWriter(string outFile)` 创建输出文件并准备写入
+* `void writePush(segment, index)` 写入 push 命令
+* `void writepop(segment, index)`
+* `void writeArithmetic(cmd)` 写入算术逻辑命令
+* ...
+* `void close()` 关闭输出文件
 
+![](img/5a0ad70d.png)
 
+### CompilationEngine
 
+从`Tokenizer`获取输入，并将输出通过`VMWriter`写入输出
+
+在`compileXxx`中，生成关于`xxx`的vm代码
+
+![](img/666abef4.png)
+
+![](img/3bf1bbe1.png)
+
+## Project 11 概述
+
+完成编译器的构建
+
+之前我们的分析器并没有处理符号的能力，我们统称其为`identifier`, 我们引入符号表来赋予其能力，为了测试功能，我们生成一个更加全面的`xml`
+
+之后我们舍弃掉`xml`代码，而替换生成`vm`代码
+
+![](img/2e21dcdb.png)
+
+首先我们希望`xml`将`identifier`分类为具体的`var argument static field class`
+
+并且我们还需要在`xml`中标识`var argument static field`的数量
+
+并在`xml`中表示这个`identifier`是否在被定义还是被使用
+
+简单输出，可自选标签，仅供测试
+
+之后舍弃掉`xml`开始最终代码生成的编写
+
+我们提供6个测试文件 分阶段开发 单元测试
+
+* `Seven` 计算 `1 + (2 * 3)`
+    * `只包括常数的表达式`
+    * `do 语句`
+    * `return 语句`
+    * 结果应在屏幕输出`7`
+
+![](img/11b50850.png)
+
+* `ConvertToBin` 十进制转化为二进制
+    * 在RAM[8000]中存放输入的十进制数，在8001到8016中倒序输出每一位二进制位
+    * 不包括数组或方法调用的表达式
+    * `if` `while` `do` `let` `return`
+
+* `Square` 控制方块
+    * 构造函数
+    * 方法
+    * 包含方法调用的表达式
+
+* `Avarage` 平均数
+    * 数组
+    * 字符串
+
+* `Pong` 击打球游戏
+    * 处理完整的应用程序
+    * 对象、静态变量
+
+* `ComlpexArrays` 复杂数组
+    * 花哨的数组和复杂的索引表达式
+
+## Unit 5 vm代码生成器 Q&A
+
+**Jack是一门简单的语言，那么为更复杂的语言生成代码需要什么呢？**
+
+首先我们的类型系统很简单，所有数据都是16位，不同类型数据之间都可以相互转换，所以编译器几乎完全可以回避掉类型相关的问题
+
+比如在处理表达式时，编译器不必关心表达式组成元素的类型
+
+并且Jack没有继承、权限控制的设计
+
+**我们距离编译Java和Python等的差距有多少？**
+
+为了支持继承、多态等，需要编译器的大量工作
+
+有一些特性是比较容易添加的，比如`for`, `switch`等结构
+
+扩展更多的类型也是相对容易的
+
+Jack中不可以将字符的字面量赋予`char`类型，而是需要使用一些字符串的函数，但是这一点也易于扩展
+
+在扩展语言时，首先语言设计师要小心地扩展，在规范地扩展后，编译器编写者要扩展他们的编译器
+
+大多数的扩展都是相对独立的，因此比较容易局部扩展我们的分析器和代码生成器
+
+编译器的另一个值得扩展的方向是代码优化，一个简单的`x++`可能经过两层编译会生产几十行代码，但是使用机器语言只需要两行
+
+即便我们的编译器没有经过优化，其仍代表了一项复杂而重要的工作。
