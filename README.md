@@ -11,7 +11,7 @@ A Notes Lib For Self Study.
 | [可变数组、链表](可变数组、链表.md) |  |
 | [类和对象](类和对象.md) |  |
 | [模板、STL](模板、STL.md) |  |
-| [脑电数据处理与特征提取第4、5、6章](脑电数据处理与特征提取第4、5、6章.md) |  |
+| [材料力学](材料力学/README.md) |  |
 | [数据结构](数据结构.md) |  |
 | [数据库和C++的连接](数据库和C++的连接.md) |  |
 | [网站](网站.md) |  |
@@ -33,7 +33,6 @@ A Notes Lib For Self Study.
 | [matlab](matlab.md) |  |
 | [nginx](nginx.md) |  |
 | [node_js](node_js.md) |  |
-| [PyEEG的使用](PyEEG的使用.md) |  |
 | [qss](qss.md) |  |
 | [Unity](Unity.md) |  |
 | [vue2](vue2.md) |  |
