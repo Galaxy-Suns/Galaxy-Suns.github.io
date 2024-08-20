@@ -6,7 +6,7 @@ A Notes Lib For Self Study.
 | ---- | ---- |
 | [操作系统](操作系统.md) |  |
 | [程序内存模型](程序内存模型.md) |  |
-| [电路原理](电路原理.md) |  |
+| [电路原理](电路原理/README.md) |  |
 | [计算机网络](计算机网络.md) |  |
 | [可变数组、链表](可变数组、链表.md) |  |
 | [类和对象](类和对象.md) |  |
@@ -25,10 +25,10 @@ A Notes Lib For Self Study.
 | [d3_js](d3_js.md) |  |
 | [Django](Django.md) |  |
 | [ELO](ELO.md) |  |
-| [html与css](html与css.md) |  |
+| [html与css](html与css/README.md) |  |
 | [InfluxDB](InfluxDB.md) |  |
 | [Java](Java.md) |  |
-| [JavaScript](JavaScript.md) |  |
+| [JavaScript](JavaScript/README.md) |  |
 | [markdown](markdown.md) |  |
 | [matlab](matlab.md) |  |
 | [nginx](nginx.md) |  |
