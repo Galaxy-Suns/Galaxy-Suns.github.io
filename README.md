@@ -41,3 +41,4 @@ A Notes Lib For Self Study.
 | [win批处理](win批处理.md) |  |
 | [从NAND到俄罗斯方块](Nand2Tetris/README.md) |  |
 | [python](python/README.md) | |
+| [机械设计](机械设计/README.md) | |
