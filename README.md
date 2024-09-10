@@ -11,7 +11,6 @@ A Notes Lib For Self Study.
 | [可变数组、链表](可变数组、链表.md) |  |
 | [类和对象](类和对象.md) |  |
 | [模板、STL](模板、STL.md) |  |
-| [材料力学](材料力学/README.md) |  |
 | [数据结构](数据结构.md) |  |
 | [数据库和C++的连接](数据库和C++的连接.md) |  |
 | [网站](网站.md) |  |
@@ -41,5 +40,3 @@ A Notes Lib For Self Study.
 | [win批处理](win批处理.md) |  |
 | [从NAND到俄罗斯方块](Nand2Tetris/README.md) |  |
 | [python](python/README.md) | |
-| [机械设计](机械设计/README.md) | |
-| [互换性](互换性/README.md) | |
