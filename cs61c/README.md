@@ -7,7 +7,11 @@
 | [数字表示](Unit1.md) | |
 | [C语言](Unit2.md) | |
 | [指针](Unit3.md) | |
-| [C语言内存管理_数组的地址_全局变量](Unit4.md) | |
+| [C语言内存管理](Unit4.md) | |
+| [浮点数](Unit5.md) | |
+| [RISC-V](Unit6.md) | |
+| [RISC-V 的内存存储 分支](Unit7.md) | |
+| [RISC-V 的逻辑指令](Unit8.md) | |
 
 ## 涵盖内容
 
