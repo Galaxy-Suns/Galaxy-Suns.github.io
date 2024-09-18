@@ -41,3 +41,4 @@ A Notes Lib For Self Study.
 | [从NAND到俄罗斯方块](Nand2Tetris/README.md) |  |
 | [python](python/README.md) | |
 | [CS61C](cs61c/README.md) | 计算机体系结构/计算机组成原理 |
+| [CS61A](cs61a/README.md) | 计算机程序结构 深入了解python | 
