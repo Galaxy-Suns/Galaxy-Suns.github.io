@@ -269,8 +269,223 @@ square = lambda x: x * x
 
 可以用真实声音采样，同样可以使用数学函数生成声音
 
-![](img/f317c88e.png)
+`wave`是个用来处理`.wav`文件的模块，而`struct`模块用来以`.wav`要求的格式编码整数
 
-![](img/90b8ef12.png)
+```py
+from wave import open
+from struct import Struct
+from math import floor
+```
 
-这是一个生成三角波声音的python代码
+采样率，来控制获取每秒有多少次来获取采样值，以控制音频
+
+```py
+frame_rate = 11025
+```
+
+`.wav`文件的编码
+
+```py
+def encode(x):
+    """按.wav 文件要求的编码格式 编码值 x
+    """
+    i = int(16384 * x)
+    return Struct('h').pack(i)
+```
+
+`play`函数是一个用于将波形写入`.wav`的函数, 其参数之一是一个描述波形的函数
+
+```py
+def play(sampler, name='song.wav', seconds=2):
+    """将波形写入 name
+    sampler 描述波形的函数 当输入时间时，输出对应时间的波形值(-1 - 1之间)
+    name 输出的.wav文件
+    seconds 声音的时长
+    """
+    out = open(name, 'wb')
+    out.setnchannels(1)
+    out.setsampwidth(2)
+    out.setframerate(frame_rate)
+    t = 0
+    while t < seconds * frame_rate:
+        sample = sampler(t)
+        out.writeframes(encode(sample))
+        t = t + 1
+    out.close()
+```
+
+`trl`函数是一个生成一个周期内的三角波波形的函数
+
+```py
+def trl(frequency, amplitude=0.3):
+    """根据 频率 FREQUENCY 振幅 AMPLITUDE 返回描述三角波形的函数"""
+    period = frame_rate // frequency # 一个周期内的采样数(时间，单位是时间帧)
+    def sampler(t):
+        saw_wave = t / period - floor(t / period + 0.5)
+        trl_wave = 2 * abs(2 * saw_wave) - 1
+        return amplitude * tri_wave
+    return sampler
+```
+
+而c音符的频率是`261.63`
+
+```py
+c_freq = 261.63
+```
+
+查看波形
+
+```py
+>>> c = trl(c_freq)
+>>> t = 0
+>>> while t < 100:
+...     print(c(t))
+...     t += 1
+...
+-0.3
+-0.2714285714285715
+-0.24285714285714305
+...
+0.10000000000000017
+0.12857142857142864
+0.3
+0.2714285714285715
+0.014285714285714235
+...
+-0.014285714285714235
+-0.04285714285714297
+-0.24285714285714277
+-0.2714285714285715
+-0.3
+-0.2714285714285715
+-0.24285714285714305
+...
+```
+
+写入音乐文件
+```
+>>> play(c)
+```
+
+听上去是一个2s的单个音符
+
+我们可以结合其他音符来生成和弦音
+
+这是`c`和`e`音符的和弦，通过`both`函数，将两个表示波形的函数叠加成一个新函数
+
+```py
+c_freq, e_freq, g_freq = 261.63, 329.63, 392.00
+
+def both(f, g):
+    return lambda t: f(t) + g(t)
+
+play(both(trl(c_freq), trl(e_freq)))
+```
+
+我们还可以控制音符的起止时间
+
+```py
+def note(f, start, end):
+    """根据波形函数F 返回一个只在START到END区间有波形的函数
+    start 起始时间 秒
+    """
+    def sampler(t):
+        seconds = t / frame_rate
+        if seconds < start:
+            return 0
+        elif seconds > end:
+            return 0
+        else:
+            return f(t)
+    return sampler
+
+c, e = trl(c_freq), trl(e_freq)
+
+play(note(c, 0, 1/4))
+```
+
+结合我们之间`both`叠加波形，我们可以依次播放两个音符
+
+```py
+play(both(note(c, 0, 1/4), note(e, 2/4, 3/4)))
+```
+
+加上一点音符前后的淡入淡出，避免太过突兀
+
+```py
+def note(f, start, end, fade=0.01):
+    """根据波形函数F 返回一个只在START到END区间有波形的函数
+    start 起始时间 秒
+    fade 淡入淡出
+    """
+    def sampler(t):
+        seconds = t / frame_rate
+        if seconds < start:
+            return 0
+        elif seconds > end:
+            return 0
+        elif seconds < start + fade:
+            return (seconds - start) / fade * f(t)
+        elif seconds > end - fade:
+            return (end - seconds) / fade * f(t)
+        else:
+            return f(t)
+    return sampler
+```
+
+让我们演奏歌曲
+
+```py
+c, e = trl(c_freq), trl(e_freq)
+g, low_g = trl(g_freq), trl(g_freq / 2)
+
+z = 0
+song = note(e, z, z + 1/8)
+z += 1/8
+song = both(song, note(e, z, z + 1/8))
+z += 1/4
+song = both(song, note(e, z, z + 1/8))
+z += 1/4
+song = both(song, note(c, z, z + 1/8))
+z += 1/8
+song = both(song, note(e, z, z + 1/8))
+z += 1/4
+song = both(song, note(g, z, z + 1/4))
+z += 1/2
+song = both(song, note(low_g, z, z + 1/4))
+z += 1/2
+
+play(song)
+```
+
+我们可以再次封装，演奏不同八度下的马里奥
+
+```py
+def mario_at(octave):
+    c, e = trl(octave * c_freq), trl(octave * e_freq)
+    g, low_g = trl(octave * g_freq), trl(octave * g_freq / 2)
+    return mario(c, e, g, low_g)
+
+def mario(c, e, g, low_g):
+    z = 0
+    song = note(e, z, z + 1/8)
+    z += 1/8
+    song = both(song, note(e, z, z + 1/8))
+    z += 1/4
+    song = both(song, note(e, z, z + 1/8))
+    z += 1/4
+    song = both(song, note(c, z, z + 1/8))
+    z += 1/8
+    song = both(song, note(e, z, z + 1/8))
+    z += 1/4
+    song = both(song, note(g, z, z + 1/4))
+    z += 1/2
+    song = both(song, note(low_g, z, z + 1/4))
+    z += 1/2
+    return song
+    
+# play(mario_at(1/2))
+play(both(mario_at(1), mario_at(1/2)))
+```
+
+这里是[完整的文件](wav.py)
