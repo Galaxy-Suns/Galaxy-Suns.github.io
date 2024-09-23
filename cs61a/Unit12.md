@@ -169,3 +169,35 @@ False
 ![](img/fdada4ee.png)
 
 ![](img/591bec04.png)
+
+```py
+class Account:
+    """一个有着余额 balance 和 号主 holder的账户
+
+    >>> a = Account('John')
+    >>> a.holder
+    'John'
+    >>> a.deposit(100)
+    100
+    >>> a.withdraw(90)
+    10
+    >>> a.withdraw(90)
+    'Insufficient funds'
+    >>> a.balance
+    10
+    >>> a.interest
+    0.02
+    >>> Account.interest = 0.04
+    >>> a.interest
+    0.04
+    """
+    interest = 0.02
+    def __init__(self, account_holder):
+        self.holder = account_holder
+        self.balance = 0
+
+    def deposit(self, amount):
+        """添加金额 amount 到 账户余额 balance 并返回 新的 balance"""
+        self.balance = self.balance + amount
+        return self.balance
+```
