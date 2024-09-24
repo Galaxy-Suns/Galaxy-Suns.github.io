@@ -1,4 +1,17 @@
 # 面向对象编程oop
+ 
+* [类与对象](#类与对象)
+* [自定义类](#自定义类)
+* [创建实例时发生的事情](#创建实例时发生的事情)
+* [对象的标识](#对象的标识)
+* [调用方法](#调用方法)
+* [类定义语句的执行过程](#类定义语句的执行过程)
+* [属性](#属性)
+  * [属性的查找过程](#属性的查找过程)
+    * [getattr_hasattr](#getattr_hasattr)
+  * [属性的赋值](#属性的赋值)
+* [方法调用](#方法调用)
+  * [绑定方法](#绑定方法)
 
 ## 类与对象
 
@@ -105,7 +118,7 @@
     * 返回方法，其中形参`self`已经被填充为`expression`的值
     * 方法和类属性是同一地位的，取决与谁先定义，名称最终绑定于谁
 
-#### getattr hasattr
+#### getattr_hasattr
 
 ![](img/dc20a583.png)
 
@@ -135,7 +148,7 @@ tom_account = Account('Tom')
 >>> tom_account.interest is Account.interest
 True
 >>> tom_account.interest = tom_account.interest + 1
-# 右侧获取到的是类属性 而左侧设置的是实例属性
+# 右侧获取到的是类属性_而左侧设置的是实例属性
 >>> tom_account.interest
 1.02
 >>> tom_account.interest is Account.interest
