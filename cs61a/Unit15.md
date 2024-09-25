@@ -1,4 +1,12 @@
-# 链表 树
+# 链表_树
+ 
+* [链表](#链表)
+  * [链表定义](#链表定义)
+  * [链表操作](#链表操作)
+  * [列表变异](#列表变异)
+    * [循环列表](#循环列表)
+  * [添加到有序列表](#添加到有序列表)
+* [树](#树)
 
 ## 链表
 
@@ -169,12 +177,103 @@ def add(s, v):
 0 -> 1 -> 3 -> 4 -> 6 -> 7 -> ()
 ```
 
+```py
+>>> print(fib_tree(6))
+8
+  5  
+    3    
+      2      
+        1        
+          1          
+          0          
+        1        
+      1      
+        1        
+        0        
+    2    
+      1      
+        1        
+        0        
+      1      
+  3  
+    2    
+      1      
+        1        
+        0        
+      1      
+    1    
+      1      
+```
+
 ## 树
 
 树和链表的差异在与树的分支有多个树，而链表的其余部分只有一个链表
 
 ![](img/ca79612a.png)
 
+```py
+class Tree:
+    tabs = 0
 
+    def __init__(self, label, branches=[]):
+        self.label = label
+        assert all([isinstance(b, Tree) for b in branches]), "所有枝干必须为树"
+        self.branches = list(branches)
+
+    def __repr__(self):
+        if self.branches == []:
+            return f'Tree({repr(self.label)})'
+        else:
+            return f'Tree({repr(self.label)}, {repr(self.branches)})'
+
+    def __str__(self):
+        s = f'{self.label}' + Tree.tabs * ' ' 
+        Tree.tabs += 2
+        for b in self.branches:
+            s += '\n' + Tree.tabs * ' '
+            s += str(b)
+        Tree.tabs -= 2
+        return s
+
+    def is_leaf(self):
+        return not self.branches
+
+def fib_tree(n):
+    if n == 0 or n == 1:
+        return Tree(n)
+    else:
+        fn_1 = fib_tree(n-1)
+        fn_2 = fib_tree(n-2)
+        return Tree(fn_1.label + fn_2.label, [fn_1, fn_2])
+```
+
+这与我们之前通过数据抽象来定义树不同的是，我们不需要定义如何从构造的树中获取不同的属性
+
+![](img/e5f72109.png)
+
+而在使用时，构造一个树，两者之间的差异不大
+
+![](img/aab66e51.png)
+
+```py
+def leaves(t):
+    """返回树的叶子列表"""
+    if t.is_leaf():
+        return [t]
+    return sum([leaves(b) for b in t.branches], [])
+
+def height(t):
+    """返回树的根节点到叶子的最长路径长度"""
+    if t.is_leaf():
+        return 0
+    else:
+        return 1 + max([height(b) for b in t.branches])
+
+def prune(t, n):
+    """修建掉label为n的所有子树"""
+    t.branches = [b for b in t.branches if b.label != n]
+    for b in t.branches:
+        prune(b, n)
+```
 
 
