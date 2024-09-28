@@ -1,4 +1,10 @@
 # Scheme
+ 
+* [基础知识](#基础知识)
+* [scheme_解释器](#scheme_解释器)
+* [特殊形式](#特殊形式)
+* [lamdba表达式](#lamdba表达式)
+* [其他的特殊形式](#其他的特殊形式)
 
 一门较早的语言，对python诞生的影响较大
 
@@ -68,22 +74,22 @@ scm> (/ (+ (* (- (* 2 2 2 2 2 3 3 3) 1) 7) 1) 3)
 scm> +   
 #[arity-dispatched-procedure 12]
 scm> (number? 3)
-#t
+#t #t
 scm> (number? +)
-#f
+#f #f
 scm> (zero? 2)      
-#f
+#f #f
 scm> (zero? 0)
-#t
+#t #t
 scm> (integer? 2.2)
-#f
+#f #f
 scm> (integer? 2)
-#t
+#t #t
 ```
 
 上述的`?`是操作名的一部分，方便我们理解操作的作用
 
-## scheme 解释器
+## scheme_解释器
 
 在项目4中，我们将构建一个实现`scheme`解释器的python程序
 

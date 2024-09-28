@@ -1,4 +1,8 @@
-# 列表 符号编程
+# 列表_符号编程
+ 
+* [列表](#列表)
+* [符号编程](#符号编程)
+* [列表处理](#列表处理)
 
 ## 列表
 
@@ -38,15 +42,15 @@ s
 scm> s
 (1 2)
 scm> (list? s)
-#t
+#t #t
 scm> (list? 3)
-#f
+#f #f
 scm> (list? nil)
-#t
+#t #t
 scm> (null? nil)
-#t
+#t #t
 scm> (null? s)
-#f
+#f #f
 scm> (list 1 2 3 4)
 (1 2 3 4)
 ```
