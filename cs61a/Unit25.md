@@ -1,4 +1,4 @@
-# 程序即数据 表达式
+# 程序即数据
 
 ## Scheme表达式就是列表
 
@@ -44,3 +44,39 @@ scm> (eval (list '+ 2 3))
 通常二者的表现相同，但是准引用表达式的某些部分可以使用逗号来取消引用
 
 ![](img/6631b363.png)
+
+### 宏
+
+允许在scheme中能够定义**新的特殊形式**
+
+*其运行良好的原因是，在`lisp`中程序即列表，即数据*
+
+宏在源代码被评估之前会被执行的操作
+
+![](img/987d86a2.png)
+
+![](img/c9040a06.png)
+
+其并没有评估参数，而是将调用时的表达式作为符号传入，并开始评估过程体，对结果整体`eval`
+
+```scm
+scm> (define (twice expr)
+        (list 'begin expr expr))
+twice
+scm> (twice (print 2))
+2
+(begin undefined undefined)
+scm> (twice '(print 2))
+(begin (print 2) (print 2))
+scm> (eval (twice '(print 2)))
+2
+2
+scm> (define-macro (twice expr)
+        (list 'begin expr expr))
+twice
+scm> (twice (print 2))
+2
+2
+```
+
+从宏观层面`twice`没有立即评估传入的表达式`(print 2)`，而我们可以选择何时评估，因此其成为了特殊形式
