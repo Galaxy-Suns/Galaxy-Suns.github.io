@@ -44,3 +44,4 @@ A Notes Lib For Self Study.
 | [CS61A](cs61a/README.md) | 计算机程序结构 深入了解python 介绍Scheme SQL| 
 | [MIT18.01](mit1801/README.md) | 单变量微积分 | 
 | [机器学习](机器学习/README.md) |  | 
+| [CS61B](cs61b/README.md) | 数据结构与算法 了解Java |
