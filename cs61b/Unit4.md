@@ -1,4 +1,11 @@
 # 替换裸递归
+ 
+* [底层的包装](#底层的包装)
+* [权限控制](#权限控制)
+* [嵌套类](#嵌套类)
+  * [帮助方法](#帮助方法)
+* [效率_实时追踪](#效率_实时追踪)
+* [代码简洁性](#代码简洁性)
 
 ## 底层的包装
 
@@ -75,7 +82,7 @@ private class IntNode
     }
 ```
 
-## 效率 实时追踪
+## 效率_实时追踪
 
 这种`size`的方法和列表的大小是线性的关系，每次调用都要从头到尾扫描一边链表
 
@@ -93,6 +100,53 @@ private int size;
 
 ![](img/0f189a8a.png)
 
+## 代码简洁性
+
+我们尝试重载一个新的构造函数，不传参，其构造一个空链表
+
+```java
+    /* 创建一个空链表 */
+    public SLList() {
+        first = null;
+        size = 0;
+    }
+```
+
+但是这回在我们的`addLast`上产生bug, 原因是我们每次都判断`first.next`是否为空，但是空列表的`first`根本没有`next`
+
+一种解决方法是增加一个特殊情况
+
+![](img/fdde9ca8.png)
+
+但是**增加特殊情况的代码会变得丑陋，调试更困难，理解更困难**
+
+我们尝试找到不需要添加特殊情况的方法
+
+在创建空链表时，与其创建一个`first=null`，不如创建一个实际的`node`，保证每次都能找到`first.next`
+
+那么第一项永远存储我们不需要的值，作为哨兵`sentinel`
+
+```java
+    /* 传入内容创建一个新列表 */
+    public SLList(int x) {
+        sentinel = new IntNode(0, null);
+        addFirst(x);
+        size = 1;
+    }
+
+    /* 创建一个空链表 */
+    public SLList() {
+        sentinel = new IntNode(0, null);
+        size = 0;
+    }
+```
+
+![](img/cd69b6c1.png)
+
+如果第一项存在，那么其永远是`sentinel.next`
+
+这种叙述也被成为**不变式**，可以用它们来推理我们的代码
+
 ```java
 public class SLList {
 
@@ -105,35 +159,38 @@ public class SLList {
         }
     }
 
-    private IntNode first;
+    /* 哨兵 */
+    private IntNode sentinel;
+
     private int size;
 
     /* 传入内容创建一个新列表 */
     public SLList(int x) {
-        first = new IntNode(x, null);
-        size = 0;
+        sentinel = new IntNode(0, null);
+        addFirst(x);
+        size = 1;
     }
 
     /* 创建一个空链表 */
     public SLList() {
-        first = null;
+        sentinel = new IntNode(0, null);
         size = 0;
     }
 
     /* 向链表头部添加节点，值为x */
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel);
         size++;
     }
 
     /* 获取第一个节点的值 */
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     /* 将末尾添加一个值为x的节点 */
     public void addLast(int x) {
-        IntNode p = first;
+        IntNode p = sentinel;
         while (p.next != null) {
             p = p.next;
         }
@@ -156,11 +213,10 @@ public class SLList {
 */
 
     public static void main(String[] args) {
-        SLList L = new SLList(5);
-        L.addFirst(10);
+        SLList L = new SLList();
+        L.addLast(10);
         System.out.println(L.getFirst());
     }
 
 }
 ```
-
