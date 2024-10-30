@@ -12,6 +12,7 @@
 | [接口继承 实现继承](Unit8.md) | |
 | [extend 封装 静态类型和类型转换](Unit9.md) | |
 | [高阶函数 多态](Unit10.md) | 包括 comparable comparator 接口类 |
+| [强化for toString equals](Unit11.md) | |
 
 ## 课程做什么？
 
