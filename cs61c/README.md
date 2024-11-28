@@ -11,7 +11,8 @@
 | [浮点数](Unit5.md) | |
 | [RISC-V](Unit6.md) | |
 | [RISC-V 的内存存储 分支](Unit7.md) | |
-| [RISC-V 的逻辑指令](Unit8.md) | |
+| [RISC-V 的按位逻辑指令 汇编过程 伪指令](Unit8.md) | |
+| [RISC-V 的函数调用](Unit9.md) | |
 
 ## 涵盖内容
 
