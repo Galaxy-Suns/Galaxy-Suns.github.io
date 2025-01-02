@@ -38,6 +38,7 @@
 | [阿姆达尔定律 请求级 数据级并行性 MapReduce](Unit32.md) | 集群 分布式 Spark | 
 | [真实的数据中心和仓库](Unit33.md) | |
 | [可靠性及其衡量和措施](Unit34.md) | 软错误检测和纠错 harmming距离 RAID磁盘冗余 |
+| [GPU](Unit35.md) | |
 
 ## 涵盖内容
 
