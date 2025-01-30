@@ -124,3 +124,62 @@ void printIssStatus(const istringstream& iss) {
 ![img](img/97865e0a.png)
 
 ---
+
+## 下半部分
+
+### cin
+
+![](img/5837f63a.png)
+
+cin 和 cout 也是一种输入输出流
+
+* 但是`cin`有一个独特的地方 在于 当其**从空的缓冲区读取时 不会失败并EOF** 而是阻塞并等待键盘输入
+* 其读到缓冲区的末尾试图继续时 也**不会产生`EOF`**
+* `cin`每次读取字符串**停止在空白字符前** 只有当下一次读取才会跳过/消耗空白字符
+
+![](img/e0003eeb.png)
+
+![](img/7c1a295a.png)
+
+仅仅输入全名会导致意想不到的错误
+
+* 在`Avery`被读到`name`后
+* 尝试读到整形`age` 去掉空白后缓冲区不为空 因此向后读 但是 没有可能是整数 因此`fail`开启
+* 之后的所有`cin`失效冻结
+
+### getline
+
+允许我们读取一整行 直到换行符**并消耗其**
+
+![](img/835c9e6a.png)
+
+返回传入的输入流对象
+
+```cpp
+int getInterger(const string &prompt) {
+    cout << prompt << endl;
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
+    int res; char rub;
+    if ((iss >> res) && !(iss >> rub)) return res;
+    return getInterger(prompt); // 输入不合法
+}
+// 转化为循环更好
+
+```
+
+可以加上
+
+![](img/dc07380d.png)
+
+避免 `cin` 在其他地方 fail
+
+输入流 提取 后 使用`getline` 往往会导致`bug`
+
+![](img/b9556453.png)
+
+原因在于二者消耗`\n`的时机
+
+* 一种解决方案是 需要再调用一次`getline` ` 24`
+* 另一种是 调用`getline`前 使得`iss`缓冲区 指针位置 挪到`\n`后 `iss.jgnore()` 忽略一个字符
