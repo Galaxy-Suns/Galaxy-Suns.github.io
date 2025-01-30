@@ -46,3 +46,4 @@ A Notes Lib For Self Study.
 | [机器学习](机器学习/README.md) |  | 
 | [CS61B](cs61b/README.md) | 数据结构与算法 了解Java |
 | [CS144](cs144/README.md) | 计算机网络 |
+| [CS106l](cs106l/README.md) | 现代C++ |
