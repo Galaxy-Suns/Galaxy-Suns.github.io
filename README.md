@@ -48,3 +48,4 @@ A Notes Lib For Self Study.
 | [CS144](cs144/README.md) | 计算机网络 |
 | [CS106l](cs106l/README.md) | 现代C++ |
 | [cmake](cmake.md) | cmake的简单使用 |
+| [MIT18.06](mit1806/README.md) | 线性代数 |
