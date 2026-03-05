@@ -49,3 +49,4 @@ A Notes Lib For Self Study.
 | [CS106l](cs106l/README.md) | 现代C++ |
 | [cmake](cmake.md) | cmake的简单使用 |
 | [MIT18.06](mit1806/README.md) | 线性代数 |
+| [CS231N](cs231n/README.md) | 应用于计算机视觉的深度学习 |
