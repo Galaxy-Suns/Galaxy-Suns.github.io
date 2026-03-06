@@ -39,7 +39,7 @@
 
 ### 距离函数
 
-* L1 distance 两张图像像素差的绝对值和
+* L1 distance 曼哈顿距离 两张图像像素差的绝对值和
 ![](./img/8ef5fd42.png)
 
 [numpy tutorial](https://numpy.org/doc/stable/user/quickstart.html)
@@ -62,7 +62,7 @@
 
 但是会出现一些模糊无法判断的区域（上图的白色区域）
 
-另一种距离函数 *L2 distance 曼哈顿距离* 
+另一种距离函数 *L2 distance 欧式距离* 
 
 ![](./img/5a50cdb7.png)
 
@@ -139,7 +139,7 @@ W和b的每一行 可以看作计算某类别时的参数
 
 有了这个函数 我们还需要找到让不满意程度下降的方法 **优化**
 
-* `softmax`分类器
+* `softmax`损失 *交叉熵*
 
 对于评分 我们将其转化为概率以控制在合适的范围内
  ![](./img/96ab08b3.png)
