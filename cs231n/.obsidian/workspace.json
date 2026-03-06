@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture2_Image_Classification_With_Linear_Classifiers.md",
+                "file": "Lecture3_Regularization_And_Optimization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lecture2_Image_Classification_With_Linear_Classifiers"
+              "title": "Lecture3_Regularization_And_Optimization"
             }
           }
         ]
@@ -186,20 +186,21 @@
   },
   "active": "ab2b926cfb381c46",
   "lastOpenFiles": [
-    "img/cf686554.png",
     "README.md~",
-    "img/8af3be59.png",
-    "img/96ab08b3.png",
-    "img/b2d90ec6.png",
-    "img/d60169f8.png",
-    "img/e64e3aae.png",
-    "img/c75b46a7.png",
-    "img/6c7e4da1.png",
-    "img/c45b64ba.png",
-    "img/8f55a413.png",
-    "README.md",
+    "img/766c884b.png",
+    "img/c8f81c2a.png",
+    "img/e7a75cb8.png",
+    "img/4dad2640.png",
+    "img/63e48baf.png",
+    "img/f8e2ef27.png",
+    "img/50e42dca.png",
+    "Lecture3_Regularization_And_Optimization.md",
+    "img/39aa9152.png",
+    "img/f5f8a5e5.png",
+    "img/6480f51d.png",
+    "Lecture2_Image_Classification_With_Linear_Classifiers.md~",
     "Lecture2_Image_Classification_With_Linear_Classifiers.md",
-    "img/7487560a.png",
+    "README.md",
     "Lecture1_Introduction.md",
     "img"
   ]
