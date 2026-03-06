@@ -11,10 +11,14 @@
             "id": "ab2b926cfb381c46",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Lecture2_Image_Classification_With_Linear_Classifiers.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Lecture2_Image_Classification_With_Linear_Classifiers"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "6713b8f2cb26aefe",
@@ -179,20 +184,23 @@
       "bases:新建数据库": false
     }
   },
-  "active": "eab24f5252147539",
+  "active": "ab2b926cfb381c46",
   "lastOpenFiles": [
+    "img/cf686554.png",
+    "README.md~",
+    "img/8af3be59.png",
+    "img/96ab08b3.png",
+    "img/b2d90ec6.png",
+    "img/d60169f8.png",
+    "img/e64e3aae.png",
+    "img/c75b46a7.png",
+    "img/6c7e4da1.png",
+    "img/c45b64ba.png",
+    "img/8f55a413.png",
     "README.md",
+    "Lecture2_Image_Classification_With_Linear_Classifiers.md",
+    "img/7487560a.png",
     "Lecture1_Introduction.md",
-    "img/b6871d16.png",
-    "img/489e7dbd.png",
-    "img/201e60bf.png",
-    "img/feb59918.png",
-    "img/8e5fce09.png",
-    "img/7d6eb7d1.png",
-    "img/9df5aad4.png",
-    "img/26658d40.png",
-    "img/5f908779.png",
-    "img/ba549f67.png",
     "img"
   ]
 }
