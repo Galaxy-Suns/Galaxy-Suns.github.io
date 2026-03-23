@@ -12,3 +12,4 @@
 | [训练卷积神经网络 卷积神经网络架构](Lecture6_CNN_Architectures.md) | 归一化层 dropout ResNet 参数初始化 数据预处理 数据增强 迁移学习 超参数选择 |
 | [循环神经网络](Lecture7_Recurrent_Neural_Networks.md) | 循环神经网络 Vanilla RNN 阶段反向传播 应用 特点 多层RNNs LSTM |
 | [注意力机制 Transformer](Lecture8_Attention_And_Transformers.md) | 注意力机制 注意力层 自注意力层 Transformer |
+| [目标检测 语义分割 可视化](Lecture9_Object_Detection_Image_Segmentation_Visualizing.md) | ViT 语义分割 U-Net 目标检测 RCNN YOLO DETR 实例分割 Mask-RCNN 可视化 显著性概念 类激活图 Grad-CAM |
